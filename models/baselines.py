@@ -5,6 +5,7 @@ from sklearn.metrics import accuracy_score, precision_score, recall_score
 
 
 data_path = os.path.abspath(os.path.join(os.getcwd(), '..', 'data', 'satisfaction.csv'))
+results_dir = os.path.abspath(os.path.join(os.getcwd(), "..", "results"))
 print(data_path)
 data = pd.read_csv(data_path)
 
@@ -116,6 +117,8 @@ def random_guess_metrics(df_heldout, heldout_props_dict, n_reps=1, seed=None):
     return pd.DataFrame(results).T
 
 metrics_random = random_guess_metrics(df_heldout, heldout_props_dict, n_reps=100, seed=42)
+random_path = os.path.join(results_dir, "random_dataframe.csv")
+metrics_random.to_csv(random_path, index=True)
 print(metrics_random)
 
 import os
@@ -398,9 +401,14 @@ if __name__ == "__main__":
     # Optional: inspect columns
     print("Columns in data:")
     print(list(data.columns))
-
+    model_name =  "deepseek-r1:8b" # "gpt-oss:20b"
+    save_name = f"{str(model_name)}_dataframe.csv".replace(":", "_")
     # Run GPT-based predictions for held-out questions
-    metrics_df = run_gpt_predictions(data, model_name="gpt-oss:20b")
+    metrics_df = run_gpt_predictions(data, model_name=model_name)
 
     print("\nGPT-based prediction metrics for held-out questions:")
     print(metrics_df)
+
+    llm_path = os.path.join(results_dir, save_name)
+    metrics_df.to_csv(llm_path, index=True)
+    
