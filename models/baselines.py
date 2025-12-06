@@ -401,7 +401,7 @@ if __name__ == "__main__":
     # Optional: inspect columns
     print("Columns in data:")
     print(list(data.columns))
-    model_name =  "deepseek-r1:8b" # "gpt-oss:20b"
+    model_name =  "llama3.1:8b" #"deepseek-r1:8b" # "gpt-oss:20b"
     save_name = f"{str(model_name)}_dataframe.csv".replace(":", "_")
     # Run GPT-based predictions for held-out questions
     metrics_df = run_gpt_predictions(data, model_name=model_name)

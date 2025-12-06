@@ -1,0 +1,4 @@
+question,accuracy,precision_macro,recall_macro,n
+20. Will you continue buying at Starbucks?,0.6475409836065574,0.6388216303470541,0.696048632218845,122
+7. How much time do you normally  spend during your visit?,0.4672131147540984,0.23070489844683392,0.23608648939027663,122
+5. How often do you visit Starbucks?,0.319672131147541,0.2136243386243386,0.24302744039586144,122
