@@ -1,0 +1,9 @@
+*/settings.py
+*.DS_Store
+__pycache__/
+*.pyc
+
+# Generated agents and results (created by run_full.py)
+agents/starbucks_agents/
+results/
+agent_testing/agent_predictions_*.csv

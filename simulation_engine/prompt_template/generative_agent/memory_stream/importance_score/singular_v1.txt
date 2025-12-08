@@ -1,0 +1,14 @@
+Variables: 
+!<INPUT 0>!: Observations
+
+<commentblockmarker>###</commentblockmarker>
+!<INPUT 0>!
+---
+Task: Above is a single observation about a fictional human subject. This observation may contain multiple pieces of information (multiple fields/questions), but it should be treated as ONE complete observation. Rate the overall importance of this entire observation on a scale from 0 to 100, where 0 represents 'not important' and 100 represents 'very important' for understanding the subject.
+
+IMPORTANT: Return only ONE importance score for the entire observation, not separate scores for each field within it.
+
+Output format: Json dictionaries of the following format: 
+{
+"Item  1": <int importance score (range: 0 to 100) for the entire observation>
+}
